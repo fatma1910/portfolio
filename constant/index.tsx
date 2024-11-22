@@ -50,8 +50,8 @@ export  const projectsData = [
         "Chadcn",
       ],
       image: "/project/1.png",
-      gitUrl: "/https://github.com/fatma1910/Finan-Smart",
-      previewUrl: "/https://finan-smart-hazel.vercel.app/",
+      gitUrl: "https://github.com/fatma1910/Finan-Smart",
+      previewUrl: "https://finan-smart-hazel.vercel.app/",
     },
     {
       id: 2,

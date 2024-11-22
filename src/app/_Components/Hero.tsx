@@ -6,12 +6,13 @@ import { TypeAnimation } from 'react-type-animation';
 import { fadeIn } from "../../../variants";
 
 
+
     
 
 const Hero = () => {
   return (
     <section className='container mx-auto '>
-        <div className='flex flex-col sm:justify-between sm:flex-row  gap-16 sm:gap-7  '>
+        <div className='flex  flex-col sm:justify-between sm:flex-row  gap-16 sm:gap-7  '>
             <motion.div 
             variants={fadeIn('right' , 0.1)}
             initial='hidden'
@@ -30,7 +31,7 @@ const Hero = () => {
                 wrapper="span"
                 speed={50}
                 
-                repeat={Infinity}
+                repeat={0}
                 /> </h1>
                 <p className='text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6'>is a skilled front-end developer specializing in Next.js, React, Typescript , and Tailwind CSS.</p>
                 <div className="place-self-center sm:place-self-start">
