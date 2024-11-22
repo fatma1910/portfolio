@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { projectsData } from "../../../constant";
+import { fadeIn } from "../../../variants";
 
 
 const ProjectsSection = () => {
@@ -14,9 +15,13 @@ const ProjectsSection = () => {
         My Projects
       </h2>
       
-      <ul ref={ref} className="grid md:grid-cols-2 gap-8 md:gap-12">
+      <ul ref={ref} className="grid md:grid-cols-2 gap-16 ">
         {projectsData.map((project, index) => (
-          <li
+          <motion.li
+          variants={fadeIn('up' , 0.1)}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false , amount: 0.2 }}
             key={index}
           >
             <ProjectCard
@@ -26,8 +31,9 @@ const ProjectsSection = () => {
               imgUrl={project.image}
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
+              skills={project.skills}
             />
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>

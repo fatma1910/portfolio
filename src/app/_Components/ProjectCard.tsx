@@ -1,15 +1,17 @@
 import React from "react";
 import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { LinkPreview } from "@/components/ui/link-preview";
 interface ProjectCardProps {
   imgUrl: string;
   title: string;
   description: string;
   gitUrl: string;
   previewUrl: string;
+  skills:string[];
 }
 
-const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }:ProjectCardProps) => {
+const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl,skills =["string"] }:ProjectCardProps) => {
   return (
     <div>
       <div
@@ -25,17 +27,27 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }:ProjectC
           >
             <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
           </Link>
-          <Link
-            href={previewUrl}
-            className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-          >
-            <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
-          </Link>
+          <LinkPreview
+          url={previewUrl}
+          isStatic
+          imageSrc={imgUrl}
+          className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+        >
+           <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+        </LinkPreview>
         </div>
       </div>
       <div className="text-white rounded-b-xl mt-3 bg-[#181818]py-6 px-4">
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
         <p className="text-[#ADB7BE] line-clamp-3">{description}</p>
+        <ul className="grid grid-cols-2 md:grid-cols-3 items-center gap-4 flex-wrap mt-5 ">
+          {skills.map((index)=>(
+            <li key={index} className="text-[#ADB7BE]  border rounded-full py-1 grid  items-center justify-center line-clamp-1  " >
+              {index}
+          </li>
+          ))}
+          
+        </ul>
       </div>
     </div>
   );

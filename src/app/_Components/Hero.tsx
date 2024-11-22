@@ -1,7 +1,9 @@
 "use client"
 
+import { motion } from "framer-motion";
 import Image from "next/image"
 import { TypeAnimation } from 'react-type-animation';
+import { fadeIn } from "../../../variants";
 
 
     
@@ -10,7 +12,12 @@ const Hero = () => {
   return (
     <section className='container mx-auto '>
         <div className='flex flex-col sm:justify-between sm:flex-row  gap-16 sm:gap-7  '>
-            <div className='col-span-7 place-self-center sm:text-left text-center flex-1'>
+            <motion.div 
+            variants={fadeIn('right' , 0.1)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{ once: false , amount: 0.2 }}
+            className='col-span-7 place-self-center sm:text-left text-center flex-1'>
                 <h1 className='text-white text-3xl   lg:text-6xl font-extrabold mb-4 '><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ">Hello, I'm </span> 
                 <TypeAnimation
                 sequence={[
@@ -32,14 +39,19 @@ const Hero = () => {
                     </a>
                     
                 </div>
-            </div>
+            </motion.div>
             
 
-                <div className="place-self-center " >
+                <motion.div 
+                variants={fadeIn('left' , 0.1)}
+                initial='hidden'
+                whileInView='show'
+                viewport={{ once: false , amount: 0.2 }}
+                className="place-self-center " >
                     <Image src='/hero.jpeg' alt="my photo" width={300} height={300}
                     className="rounded-full "
                     />
-                </div>
+                </motion.div>
 
         </div>
         
